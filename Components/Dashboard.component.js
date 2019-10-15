@@ -22,6 +22,12 @@ function hp (percentage) {
 
 export default class Dashboard extends React.Component{
 
+    constructor(props){
+        super(props);
+        this.state = {
+            name: "Thivya",
+        }
+    }
 
     handleScroll(event:{ nativeEvent: { contentOffset: { x: number, y: number }, contentSize: { height: number, width: number } }}){
         const {x} = event.nativeEvent.contentOffset;
@@ -36,28 +42,59 @@ export default class Dashboard extends React.Component{
     render(){
         return (
             <SafeAreaView style={ds.container}>
-                    <View key="1">
-                        <StatusBar backgroundColor="transparent" translucent={true} barStyle={"light-content"} />
-                        <Image source={require('./Images/road-trip-with-raj-0uI8LANIe0A-unsplash.jpg')} style={ds.backgroundImage}/>
-                    <Text style={ds.Title}>Sri-Lanka</Text>
-                    <Text style={ds.Subtitle}>Start your journey with us</Text>
-                    </View>
+                <StatusBar backgroundColor="transparent" translucent={true} barStyle={"light-content"} />
+                <Image source={require('./Images/road-trip-with-raj-0uI8LANIe0A-unsplash.jpg')} style={ds.backgroundImage}/>
+                <Text style={ds.Title}>Sri-Lanka</Text>
+                <Text style={ds.Subtitle}>Start your journey with us</Text>
                 <ScrollView style={ds.Scrollable} showsHorizontalScrollIndicator={false}>
-                    <View style={ds.VerticalContainer}>
-                    </View>
                         <View style={ds.panel}>
+                            <Text style={ds.Hello}>Hello {this.state.name}, what are you looking for ?</Text>
                             <View style={ds.boxContainerHorizontal}>
                                 <Text style={ds.panelTitle}>Travel tips</Text>
                                 <View style={ds.box1}>
+                                    <View style={ds.circle}/>
                                     <Text style={ds.boxText}>Restaurant</Text>
                                     <View style={ds.iconContainer}>
-                                        <Icon name="User" fill="#ffffff"/>
+                                        <Icon name="Food" fill="#ffffff" viewBox="0 0 100 100" height='64' width='64'/>
+                                </View>
+                                </View>
+                                <View style={ds.box2}>
+                                    <View style={ds.circle}/>
+                                    <Text style={ds.boxText}>Hotels</Text>
+                                    <View style={ds.iconContainer}>
+                                        <Icon name="hotel" fill="#ffffff" viewBox="0 0 100 100" height='64' width='64'/>
                                     </View>
                                 </View>
-                                <View style={ds.box2}></View>
-                                <View style={ds.box3}></View>
-                                <View style={ds.box4}></View>
+                                <View style={ds.box3}>
+                                    <View style={ds.circle}/>
+                                    <Text style={ds.boxText}>Activities</Text>
+                                    <View style={ds.iconContainer}>
+                                        <Icon name="activities" fill="#ffffff" viewBox="0 0 100 100" height='64' width='64'/>
+                                    </View>
+                                </View>
+                                <View style={ds.box4}>
+                                    <View style={ds.circle}/>
+                                    <Text style={ds.boxText}>Hot Spots</Text>
+                                    <View style={ds.iconContainer}>
+                                        <Icon name="monuments" fill="#ffffff" viewBox="0 0 100 100" height='64' width='64'/>
+                                    </View>
+                                </View>
                             </View>
+                            <Text style={ds.panelTitle}>Find experience</Text>
+                            <ScrollView style={ds.horizontalScrollable} horizontal={true} showsHorizontalScrollIndicator={false}>
+                                <View style={ds.horizontalContainer}>
+                                    <View style={ds.bigBox}>
+                                        <Image source={require('./Images/adam-marikar-3sJIC7dKcpQ-unsplash.jpg')} style={ds.boxImage}/>
+                                        <Text style={ds.bigBoxText}>Temples</Text>
+                                    </View>
+                                    <View style={ds.bigBox}>
+                                        
+                                    </View>
+                                    <View style={ds.bigBox}></View>
+                                    <View style={ds.bigBox}></View>
+                                </View>
+                            </ScrollView>
+                            <Text style={{textAlign:'center', padding:10}}>© copyright Appupeze</Text>
                         </View>
                 </ScrollView>
                         
