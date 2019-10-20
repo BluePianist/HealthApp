@@ -35,7 +35,8 @@ export default StyleSheet.create({
         fontSize: 28,
     },
     Hello:{
-        fontFamily:"Audrey-Normal",
+        fontFamily:"Quark-Bold",
+        // letterSpacing:1,
         fontSize:30,
         textAlign:'center',
         marginTop:20,
@@ -94,7 +95,7 @@ export default StyleSheet.create({
     box1:{
         position:'relative',
         width:wp('44%'),
-        height:hp('23%'),
+        height:wp('44%'),
         backgroundColor:'#B0D0D3',
         borderRadius: 40,
         // marginTop:0,
@@ -109,7 +110,7 @@ export default StyleSheet.create({
     box2:{
         position:'relative',
         width:wp('44%'),
-        height:hp('23%'),
+        height:wp('44%'),
         backgroundColor:'#C08497',
         borderRadius: 40,
         // marginTop:7,
@@ -124,7 +125,7 @@ export default StyleSheet.create({
     box3:{
         position:'relative',
         width:wp('44%'),
-        height:hp('23%'),
+        height:wp('44%'),
         backgroundColor:'#F7AF9D',
         borderRadius: 40,
         marginTop:20,
@@ -139,7 +140,7 @@ export default StyleSheet.create({
     box4:{
         position:'relative',
         width:wp('44%'),
-        height:hp('23%'),
+        height:wp('44%'),
         backgroundColor:'#F7E3AF',
         borderRadius: 40,
         marginTop:20,
@@ -190,6 +191,7 @@ export default StyleSheet.create({
         fontSize:35,
         fontFamily:"Audrey-Bold",
         padding:10,
+        marginTop:'10%',
     },
     iconContainer:{
         // height:100,
@@ -223,7 +225,14 @@ export default StyleSheet.create({
         shadowColor: 'black',
         shadowRadius:2,
         shadowOpacity:1,
-    }
+    },
+    // animatedView:{
+    //     position:'absolute',
+    //     marginTop:0,
+    //     // height:hp('90%'),
+
+    // }
+
     
     
 })
