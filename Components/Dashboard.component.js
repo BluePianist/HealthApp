@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, Text, ScrollView, StatusBar, Animated, Dimensions, SafeAreaView , Easing, Platform } from 'react-native';
+import { View, Image, Text, ScrollView, StatusBar, Animated, Dimensions, SafeAreaView , Easing, Platform, TouchableOpacity} from 'react-native';
 import ds from './Style/Dashboard_style.js';
 import Carousel from 'react-native-snap-carousel';
 import Icon from './Icon'
@@ -21,6 +21,9 @@ function hp (percentage) {
 }
 
 export default class Dashboard extends React.Component{
+    static navigationOptions = {
+        header: null
+    }
 
     constructor(props){
         super(props);
@@ -60,7 +63,7 @@ export default class Dashboard extends React.Component{
     }
     scrollToInitialPosition = () => {
         setTimeout(() => {
-            this.scrollViewRef.scrollTo({ y: hp(38), animated:true });
+            this.scrollViewRef.scrollTo({ y: hp(36), animated:true });
         }, 2); 
       }
   
@@ -79,16 +82,13 @@ export default class Dashboard extends React.Component{
                                 <Text style={ds.Hello}>Hello {this.state.name}, what are you looking for ?</Text>
                                 <View style={ds.boxContainerHorizontal}>
                                     <Text style={ds.panelTitle}>Travel tips</Text>
-                                    {/* <Route path='/Restaurant' component={Restaurant}/> */}
-                                    {/* <Link to='/Restaurant'> */}
-                                        <View style={ds.box1} onTouchEnd={this.handlePress}>
+                                        <TouchableOpacity activeOpacity={0.5} style={ds.box1} onPress={() => this.props.navigation.navigate('Restaurant')}>
                                             <View style={ds.circle}/>
                                             <Text style={ds.boxText}>Restaurant</Text>
                                             <View style={ds.iconContainer}>
                                                 <Icon name="Food" fill="#ffffff" viewBox="0 0 100 100" height='64' width='64'/>
                                             </View>
-                                        </View>
-                                    {/* </Link> */}
+                                        </TouchableOpacity>
                                     <View style={ds.box2}>
                                         <View style={ds.circle}/>
                                         <Text style={ds.boxText}>Hotels</Text>
@@ -135,8 +135,6 @@ export default class Dashboard extends React.Component{
                                 <Text style={{textAlign:'center', padding:10}}>© copyright Appupeze</Text>
                             </View>
                     </ScrollView>
-                {/* </Router> */}
-                {/* </Animated.View> */}
                         
             </SafeAreaView>
         )
