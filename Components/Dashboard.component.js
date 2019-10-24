@@ -89,27 +89,27 @@ export default class Dashboard extends React.Component{
                                                 <Icon name="Food" fill="#ffffff" viewBox="0 0 100 100" height='64' width='64'/>
                                             </View>
                                         </TouchableOpacity>
-                                    <View style={ds.box2}>
+                                    <TouchableOpacity activeOpacity={0.5} style={ds.box2} onPress={() => this.props.navigation.navigate('Hotel')}>
                                         <View style={ds.circle}/>
                                         <Text style={ds.boxText}>Hotels</Text>
                                         <View style={ds.iconContainer}>
                                             <Icon name="hotel" fill="#ffffff" viewBox="0 0 100 100" height='64' width='64'/>
                                         </View>
-                                    </View>
-                                    <View style={ds.box3}>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity style={ds.box3} activeOpacity={0.5} onPress={() => this.props.navigation.navigate('Activities')}>
                                         <View style={ds.circle}/>
                                         <Text style={ds.boxText}>Activities</Text>
                                         <View style={ds.iconContainer}>
                                             <Icon name="activities" fill="#ffffff" viewBox="0 0 100 100" height='64' width='64'/>
                                         </View>
-                                    </View>
-                                    <View style={ds.box4}>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity style={ds.box4} activeOpacity={0.5} onPress={() => this.props.navigation.navigate('HotSpots')}>
                                         <View style={ds.circle}/>
                                         <Text style={ds.boxText}>Hot Spots</Text>
                                         <View style={ds.iconContainer}>
                                             <Icon name="monuments" fill="#ffffff" viewBox="0 0 100 100" height='64' width='64'/>
                                         </View>
-                                    </View>
+                                    </TouchableOpacity>
                                 </View>
                                 <Text style={ds.panelTitle}>Find experience</Text>
                                 <ScrollView style={ds.horizontalScrollable} horizontal={true} showsHorizontalScrollIndicator={false}>

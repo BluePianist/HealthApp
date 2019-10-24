@@ -3,6 +3,9 @@ import { View, Image, Scrollview, Text} from 'react-native'
 import './Components/Dashboard.component'
 import Dashboard from './Components/Dashboard.component';
 import Restaurant from './Components/Restaurant.component';
+import Hotel from './Components/Hotels.component';
+import Activities from './Components/Activities.component';
+import HotSpots from './Components/HotSpots.component';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 // second commit
@@ -10,6 +13,9 @@ const RootStack = createStackNavigator(
   {
     Dashboard: Dashboard,
     Restaurant: Restaurant,
+    Hotel: Hotel,
+    Activities: Activities,
+    HotSpots: HotSpots,
 },
 {
   initialRouteName:'Dashboard'
