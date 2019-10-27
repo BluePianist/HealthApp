@@ -63,7 +63,7 @@ export default class Dashboard extends React.Component{
     }
     scrollToInitialPosition = () => {
         setTimeout(() => {
-            this.scrollViewRef.scrollTo({ y: hp(36), animated:true });
+            this.scrollViewRef.scrollTo({ y: hp(33), animated:true });
         }, 2); 
       }
   
@@ -82,32 +82,32 @@ export default class Dashboard extends React.Component{
                                 <Text style={ds.Hello}>Hello {this.state.name}, what are you looking for ?</Text>
                                 <View style={ds.boxContainerHorizontal}>
                                     <Text style={ds.panelTitle}>Travel tips</Text>
-                                        <TouchableOpacity activeOpacity={0.5} style={ds.box1} onPress={() => this.props.navigation.navigate('Restaurant')}>
-                                            <View style={ds.circle}/>
-                                            <Text style={ds.boxText}>Restaurant</Text>
-                                            <View style={ds.iconContainer}>
-                                                <Icon name="Food" fill="#ffffff" viewBox="0 0 100 100" height='64' width='64'/>
-                                            </View>
-                                        </TouchableOpacity>
-                                    <TouchableOpacity activeOpacity={0.5} style={ds.box2} onPress={() => this.props.navigation.navigate('Hotel')}>
-                                        <View style={ds.circle}/>
+                                    <TouchableOpacity activeOpacity={0.7} style={ds.box1} onPress={() => this.props.navigation.navigate('Restaurant')}>
+                                        <Image source={require('./Images/DRYpypwUQAEfMNX.jpg')} style={ds.boxImage}/>
+                                        <Text style={ds.boxText}>Restaurants</Text>
+                                        <View style={ds.iconContainer}>
+                                            <Icon name="Food" fill="#ffffff" viewBox="0 0 100 100" height='28' width='28'/>
+                                        </View>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity activeOpacity={0.7} style={ds.box2} onPress={() => this.props.navigation.navigate('Hotel')}>
+                                        <Image source={require('./Images/laya-safari.jpg')} style={ds.boxImage}/>
                                         <Text style={ds.boxText}>Hotels</Text>
                                         <View style={ds.iconContainer}>
-                                            <Icon name="hotel" fill="#ffffff" viewBox="0 0 100 100" height='64' width='64'/>
+                                            <Icon name="hotel" fill="#ffffff" viewBox="0 0 100 100" height='28' width='28'/>
                                         </View>
                                     </TouchableOpacity>
-                                    <TouchableOpacity style={ds.box3} activeOpacity={0.5} onPress={() => this.props.navigation.navigate('Activities')}>
-                                        <View style={ds.circle}/>
+                                    <TouchableOpacity style={ds.box3} activeOpacity={0.7} onPress={() => this.props.navigation.navigate('Activities')}>
+                                    <Image source={require('./Images/Sigiriya_1024x1024.jpg')} style={ds.boxImage}/>
                                         <Text style={ds.boxText}>Activities</Text>
                                         <View style={ds.iconContainer}>
-                                            <Icon name="activities" fill="#ffffff" viewBox="0 0 100 100" height='64' width='64'/>
+                                            <Icon name="activities" fill="#ffffff" viewBox="0 0 100 100" height='28' width='28'/>
                                         </View>
                                     </TouchableOpacity>
-                                    <TouchableOpacity style={ds.box4} activeOpacity={0.5} onPress={() => this.props.navigation.navigate('HotSpots')}>
-                                        <View style={ds.circle}/>
+                                    <TouchableOpacity style={ds.box4} activeOpacity={0.7} onPress={() => this.props.navigation.navigate('HotSpots')}>
+                                        <Image source={require('./Images/nuwara-eliya.jpg')} style={ds.boxImage}/>
                                         <Text style={ds.boxText}>Hot Spots</Text>
                                         <View style={ds.iconContainer}>
-                                            <Icon name="monuments" fill="#ffffff" viewBox="0 0 100 100" height='64' width='64'/>
+                                            <Icon name="monuments" fill="#ffffff" viewBox="0 0 100 100" height='28' width='28'/>
                                         </View>
                                     </TouchableOpacity>
                                 </View>

@@ -62,7 +62,7 @@ export default class Restaurant extends React.Component{
         // console.log(uri);
         const {title, image, address, info, rate} = item;
         return (
-            <View style={rs.item}>
+            <SafeAreaView style={rs.item}>
                 <ParallaxImage
                 containerStyle={rs.containerImage}
                 style={rs.Image}
@@ -84,7 +84,7 @@ export default class Restaurant extends React.Component{
                     </View>
                 </View>
                 {/* </ParallaxImagestyle={rs.Image}> */}
-            </View>
+            </SafeAreaView>
         );
     }
     get pagination () {
@@ -116,10 +116,11 @@ export default class Restaurant extends React.Component{
     }
     render(){
         return(
+            // <SafeAreaView style={rs.container}>
             <ScrollView style={rs.container}>
             <StatusBar backgroundColor="#F7E3AF" translucent={true} barStyle={"dark-content"} />
             <View style={rs.circle}/>
-                <View style={rs.carouselContainer}>
+                <SafeAreaView style={rs.carouselContainer}>
                     <Carousel
                     style={rs.carousel}
                     hasParallaxImages={true}
@@ -130,7 +131,7 @@ export default class Restaurant extends React.Component{
                     onSnapToItem={(index) => this.setState({ activeSlide: index }) }
                     ref={(c) => {this.numberCarousel = c;}}
                     />
-                </View>
+                </SafeAreaView>
                     { this.pagination }  
                     <FlatList
                     data={this.state.entries}
@@ -140,6 +141,7 @@ export default class Restaurant extends React.Component{
                     {/* <Text>Hello</Text> */}
                     {/* <Image style={rs.Image} source={require('./Images/jaromir-kavan-i9eaAR4dWi8-unsplash.jpg')}/> */}
             </ScrollView>
+            // </SafeAreaView>
         )
     }
 }
