@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, Text, ScrollView, StatusBar, Animated, Dimensions, SafeAreaView , Easing, Platform, TouchableOpacity} from 'react-native';
+import { View, Image, Text, ScrollView, StatusBar, Animated, Dimensions, SafeAreaView , Easing, Platform, TouchableOpacity, YellowBox} from 'react-native';
 import ds from './Style/Dashboard_style.js';
 import Carousel from 'react-native-snap-carousel';
 import Icon from './Icon'
@@ -8,7 +8,7 @@ import { Link, Route, Switch, BrowserRouter as Router } from 'react-router-dom'
 // import ViewPager from '@react-native-community/viewpager';
 
 
-
+console.disableYellowBox = true;
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
 
 function wp (percentage) {
@@ -35,7 +35,7 @@ export default class Dashboard extends React.Component{
 
     handleScroll(event:{ nativeEvent: { contentOffset: { x: number, y: number } }}){
         const {y} = event.nativeEvent.contentOffset;
-        console.log(y);
+        // console.log(y);
         if(y>715){
             return(<StatusBar backgroundColor="transparent" translucent={true} barStyle={"dark-content"} />)
         }
@@ -114,10 +114,10 @@ export default class Dashboard extends React.Component{
                                 <Text style={ds.panelTitle}>Find experience</Text>
                                 <ScrollView style={ds.horizontalScrollable} horizontal={true} showsHorizontalScrollIndicator={false}>
                                     <View style={ds.horizontalContainer}>
-                                        <View style={ds.bigBox}>
+                                        <TouchableOpacity style={ds.bigBox}onPress={() => this.props.navigation.navigate('GetUserList')}>
                                             <Image source={require('./Images/adam-marikar-3sJIC7dKcpQ-unsplash.jpg')} style={ds.boxImage}/>
                                             <Text style={ds.bigBoxText}>Temples</Text>
-                                        </View>
+                                        </TouchableOpacity>
                                         <View style={ds.bigBox}>
                                             <Image source={require('./Images/joshua-newton-LxQe7xNGHJA-unsplash.jpg')}style={ds.boxImage}/>
                                             <Text style={ds.bigBoxText}>Forests</Text>

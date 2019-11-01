@@ -15,13 +15,12 @@ export default StyleSheet.create({
       flex: 1,
       flexDirection: 'row',
       flexWrap:'wrap',
-      // alignItems:'flex-start',
       borderRadius:20,
-      marginVertical:5,
+      marginVertical:10,
       backgroundColor:'white',
       padding:20,
       shadowOffset:{width: 0, height: 0},
-      elevation: 10,
+      elevation: 5,
       shadowColor: 'black',
       shadowRadius:2,
       shadowOpacity:1,
@@ -56,7 +55,7 @@ export default StyleSheet.create({
       // backgroundColor:'yellow'
     },
     carouselContainer:{
-        marginTop:hp('5%'),
+        marginTop:hp('2%'),
         // position:'relative',
         flex: 1,
         height:hp('40%'),
@@ -65,7 +64,6 @@ export default StyleSheet.create({
     },
     carousel: {
         flex: 1,
-        // backgroundColor: 'black',
         position:'relative',
         // borderRadius:50,
       },
@@ -89,7 +87,7 @@ export default StyleSheet.create({
           fontFamily:'Montserrat-Bold',
           // backgroundColor:'yellow',
         //   marginRight:'auto',
-          marginLeft:'3%',
+          marginLeft:'5%',
           color:'black',
         //   textAlign:'center',
           padding:5,
@@ -149,6 +147,9 @@ export default StyleSheet.create({
         marginTop:'-2%',
         position:'relative',
       },
+      plus:{
+        alignSelf:'center',
+      },
       Image:{
           width:'100%',
           height:'100%',
@@ -156,6 +157,32 @@ export default StyleSheet.create({
           resizeMode:'cover',
           backgroundColor:'black',
         //   borderRadius:30,
+      },
+      addReview:{
+        height:hp('6%'),
+        width:hp('6%'),
+        backgroundColor:'#DA4167',
+        position:'absolute',
+        marginTop:hp('2%'),
+        marginLeft:wp('74%'),
+        borderRadius:10,
+        flex:1,
+        flexDirection:'column',
+        justifyContent:'center'
+      },
+      closeModal:{
+        borderWidth:2,
+        borderColor:'#DA4167',
+        backgroundColor:'white',
+        maxWidth:'30%',
+        height:'100%',
+        padding:0,
+        borderRadius:10,
+        flex:1,
+        flexDirection:'column',
+        justifyContent:'center',
+        alignItems:'center',
+        marginHorizontal:10 
       },
       infoResto:{
           flex:1,
@@ -172,5 +199,19 @@ export default StyleSheet.create({
           // marginRight:'auto',
           alignSelf:'center',
           padding:4,
-      }
+      },
+      submit:{
+        
+        backgroundColor:'#DA4167',
+        maxWidth:'30%',
+        height:'100%',
+        padding:0,
+        borderRadius:10,
+        flex:1,
+        flexDirection:'column',
+        justifyContent:'center',
+        alignItems:'center',
+        marginHorizontal:10
+
+      },
 })

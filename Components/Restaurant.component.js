@@ -1,8 +1,12 @@
 import React from 'react'
-import { View, Text, ImageBackground, SafeAreaView, Dimensions, ScrollView, Image, StatusBar, FlatList } from 'react-native'
+import { View, Text, ImageBackground, SafeAreaView, Dimensions, ScrollView, Image, StatusBar, FlatList, TouchableOpacity } from 'react-native'
 import Carousel, {ParallaxImage, Pagination} from 'react-native-snap-carousel'
 import rs from './Style/Restaurant_style'
 import Icon from './Icon'
+import {Stitch, RemoteMongoClient} from 'mongodb-stitch-react-native-sdk'
+import { AddReviewForm, state } from './AddReviewForm.component'
+import Modal from 'react-native-modal'
+
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
@@ -36,58 +40,6 @@ const ListResto = [
         rate: 4.9,
     },
 ];
-const Reviews_1 = [
-    {
-        userName:'Thivya',
-        userRate: 4,
-        userColor:'#DA4167',
-        publishedDate: 'May 19, 2019',
-        userTitle:'I felt at home',
-        userContent:'Fantastic food and authentic Sri Lankan feel. Host Mr ruwan and Mrs nimini were very hospitable and made us feel at home'
-    },
-    {
-        userName:'Douglas',
-        userRate: 5,
-        userColor:'#832161',
-        publishedDate: 'January 2, 2019',
-        userTitle:'Amazing',
-        userContent:'Fantastic food and authentic Sri Lankan feel. Host Mr ruwan and Mrs nimini were very hospitable and made us feel at home'
-    },
-    {
-        userName:'Sahani',
-        userRate: 5,
-        userColor:'#EBB3A9',
-        publishedDate: 'January 22, 2018',
-        userTitle:'I\'ll be back !',
-        userContent:'If you only in SL for short time definitely check out this place. The moment you walk in to this restaurant right away you feels like been taken away to the local Villages and invited for a village feast. All the foods are traditional and authentic. For visitors you must go in with open mind with their foods and flavour. Most dishes aren’t too spicy. Friendly staff !! Have chickens running around the ground which are fun to watch. This is a great SL experience for sure !!'
-    },
-]
-const Reviews_2 = [
-    {
-        userName:'Brice',
-        userRate: 3,
-        userColor:'#E87EA1',
-        publishedDate: 'May 19, 2019',
-        userTitle:'A bit expensive',
-        userContent:'Fantastic food and authentic Sri Lankan feel. Host Mr ruwan and Mrs nimini were very hospitable and made us feel at home'
-    },
-    {
-        userName:'Bob',
-        userRate: 4,
-        userColor:'#A4BEF3',
-        publishedDate: 'January 2, 2019',
-        userTitle:'Nice place',
-        userContent:'Fantastic food and authentic Sri Lankan feel. Host Mr ruwan and Mrs nimini were very hospitable and made us feel at home'
-    },
-    {
-        userName:'Pierre',
-        userRate: 5,
-        userColor:'#857885',
-        publishedDate: 'January 22, 2018',
-        userTitle:'Romantic Dinner',
-        userContent:'If you only in SL for short time definitely check out this place. The moment you walk in to this restaurant right away you feels like been taken away to the local Villages and invited for a village feast. All the foods are traditional and authentic. For visitors you must go in with open mind with their foods and flavour. Most dishes aren’t too spicy. Friendly staff !! Have chickens running around the ground which are fun to watch. This is a great SL experience for sure !!'
-    },
-]
 
 function getStars(rate){
     const style={
@@ -177,7 +129,8 @@ function getStars(rate){
             break;
     }
 }
-function Item({ userTitle, userName, userRate, userColor, userContent, publishedDate }) {
+function Item({ userTitle, userName, userRate, userColor, userContent, publishedDate, activeSlide, Slide }) {
+    // Each Review which describe the ListReview
     const style={
         circle:{
             position:'relative',
@@ -209,43 +162,95 @@ function Item({ userTitle, userName, userRate, userColor, userContent, published
             marginTop:height*0.01,
         }
     }
-    return (
-      <View style={rs.itemContainer}>
-        <View style={{width:width*0.2, marginLeft:-12}}>
-            <View style={Object.assign(style.circle)}>
-                <Icon name="User" fill={userColor} viewBox='0 0 100 100' height='34' width='34' style={rs.userIcon}/>
+    if(activeSlide===Slide){
+        return (
+          <View style={rs.itemContainer}>
+            <View style={{width:width*0.2, marginLeft:-12}}>
+                <View style={Object.assign(style.circle)}>
+                    <Icon name="User" fill={userColor} viewBox='0 0 100 100' height='34' width='34' style={rs.userIcon}/>
+                </View>
+                <Text style={rs.userName}>{userName}</Text>
             </View>
-            <Text style={rs.userName}>{userName}</Text>
-        </View>
-        <View style={{
-            marginTop:-10, 
-            // backgroundColor:'white', 
-            width:'78%', 
-            height:'110%'}}>
-            <Text style={rs.title}>{userTitle}</Text>
-            {getStars(userRate)}
-            <Text style={Object.assign(style.publishedDate)}>{publishedDate}</Text>
-            <Text style={Object.assign(style.userContent)}>{userContent}</Text>
-        </View>
-      </View>
-    );
-  }
+            <View style={{
+                marginTop:-10, 
+                width:'78%', 
+                height:'110%'}}>
+                <Text style={rs.title}>{userTitle}</Text>
+                {getStars(userRate)}
+                <Text style={Object.assign(style.publishedDate)}>{publishedDate}</Text>
+                <Text style={Object.assign(style.userContent)}>{userContent}</Text>
+            </View>
+          </View>
+        );
+    }else{
+        return(
+            <View></View>
+        )
+    }
+}
   
 export default class Restaurant extends React.Component{
     constructor(props){
         super(props)
         this.state={
             entries: ListResto,
-            reviews1: Reviews_1,
-            reviews2: Reviews_2,
             activeSlide: 0,
+            client:undefined,
+            currentUserId:undefined,
+            data:undefined,
+            formVisible: false,
         }
+        this._onPress = this._onPress.bind(this)
+        this._renderItem = this._renderItem.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this._onRefresh = this._onRefresh.bind(this)
     }
     static navigationOptions = {
         header: null
     }
+    componentDidMount(){
+        this._loadClient();
+        this.setState({
+            formVisible:false
+        })
+    }
+    componentWillUnmount(){
+        this.state.close
+    }
+    _onRefresh(){
+        const stitchAppClient = Stitch.defaultAppClient;
+        const mongoClient = stitchAppClient.getServiceClient(RemoteMongoClient.factory, "mongodb-atlas");
+        const db = mongoClient.db("Reviews");
+        const reviews = db.collection("Restaurants");
+
+        reviews.find({},{sort: {fullDate: -1}})
+        .asArray()
+        .then(reviews => {
+            this.setState({
+                data: reviews
+            })
+        })
+        .catch(e => console.log(e))
+    }
+    _loadClient(){
+        if(!Stitch.hasAppClient('sri-lankapp-wyakx')){
+            Stitch.initializeDefaultAppClient('sri-lankapp-wyakx').then(client => {
+                this.setState({ client });
+           
+                if(client.auth.isLoggedIn) {
+                  this.setState({ currentUserId: client.auth.user.id })
+                }
+            });
+        } else {
+            this.setState({client: Stitch.defaultAppClient})
+        }
+        this._onRefresh();
+    }
+    _onPress(){
+        this.setState({ formVisible:!this.state.formVisible })
+    }
     _renderItem ({item, index}, parallaxProps) {
-        // console.log(uri);
+        // How the slide is displayed in the carousel
         const {title, image, address, info, rate} = item;
         return (
             <View style={rs.item}>
@@ -256,6 +261,10 @@ export default class Restaurant extends React.Component{
                 parallaxFactor={0.4}
                 {...parallaxProps}
                 />
+                <TouchableOpacity activeOpacity={0.6} style={rs.addReview} onPress={this._onPress}>
+                    <Icon name="plus" fill="#ffffff" viewBox="0 0 100 100" height='33' width='33' style={rs.plus}/>
+                </TouchableOpacity>
+                
                 <View style={rs.infoResto}>
                     <Text style={rs.title}>{ title }</Text>
                     <View style={rs.iconStarContainer}>
@@ -273,7 +282,32 @@ export default class Restaurant extends React.Component{
             </View>
         );
     }
+    handleSubmit(){
+        const mongoClient = this.state.client.getServiceClient(RemoteMongoClient.factory, "mongodb-atlas");
+        const db = mongoClient.db("Reviews");
+        const reviews = db.collection("Restaurants");
+
+        if(state){
+        reviews.insertOne({
+                userName: state.userName,
+                userTitle: state.userTitle,
+                userContent: state.userContent,
+                userColor: state.userColor,
+                publishedDate: state.publishedDate,
+                userRate: state.userRate,
+                Slide: this.state.activeSlide,
+                fullDate: new Date(),
+            
+        }).then(() => {
+            this.setState({formVisible: false})
+            setTimeout(() => {
+                this._onRefresh();
+            }, 100);
+        }).catch(e => {console.log('error '+ e);})
+        } else {alert('state undefined !' + state)}
+    }
     get pagination () {
+        // Display dots according to the current slide
         const { entries, activeSlide } = this.state;
         return (
             <View>
@@ -302,16 +336,20 @@ export default class Restaurant extends React.Component{
             </View>
         );
     }
-    get InfoResto (){
-        const { entries, activeSlide } = this.state;
+    get ListReviews (){
+        // Return a list with reviews switch the active slide
+        const { entries, activeSlide, data } = this.state;
         switch (activeSlide) {
             case 0:
+                setTimeout(() => {
+                    // console.log(data;
+                }, 2000);
                 return(
                     <View>
                         {this.pagination}
                         <Text style={rs.title}>Reviews</Text>
                         <FlatList
-                        data={this.state.reviews1}
+                        data={data}
                         renderItem={({ item }) => <Item 
                         userName={item.userName} 
                         userRate={item.userRate} 
@@ -319,8 +357,10 @@ export default class Restaurant extends React.Component{
                         publishedDate={item.publishedDate}
                         userTitle={item.userTitle}
                         userContent={item.userContent}
+                        activeSlide={activeSlide}
+                        Slide={item.Slide}
                          />}
-                        keyExtractor={item => item.UserTitle}
+                        // keyExtractor={item => Object.values(item._id)}
                         />
                     </View>
                 )
@@ -331,7 +371,7 @@ export default class Restaurant extends React.Component{
                         {this.pagination}
                         <Text style={rs.title}>Reviews</Text>
                         <FlatList
-                        data={this.state.reviews2}
+                        data={data}
                         renderItem={({ item }) => <Item 
                         userName={item.userName} 
                         userRate={item.userRate} 
@@ -339,8 +379,54 @@ export default class Restaurant extends React.Component{
                         publishedDate={item.publishedDate}
                         userTitle={item.userTitle}
                         userContent={item.userContent}
+                        activeSlide={activeSlide}
+                        Slide={item.Slide}
                          />}
-                        keyExtractor={item => item.UserTitle}
+                        // keyExtractor={item => Object.values(item._id)}
+                        />
+                    </View>
+                )
+            break;
+            case 2:
+                return(
+                    <View>
+                        {this.pagination}
+                        <Text style={rs.title}>Reviews</Text>
+                        <FlatList
+                        data={data}
+                        renderItem={({ item }) => <Item 
+                        userName={item.userName} 
+                        userRate={item.userRate} 
+                        userColor={item.userColor}
+                        publishedDate={item.publishedDate}
+                        userTitle={item.userTitle}
+                        userContent={item.userContent}
+                        activeSlide={activeSlide}
+                        Slide={item.Slide}
+                         />}
+                        // keyExtractor={item => Object.values(item._id)}
+                        />
+                    </View>
+                )
+            break;
+            case 3:
+                return(
+                    <View>
+                        {this.pagination}
+                        <Text style={rs.title}>Reviews</Text>
+                        <FlatList
+                        data={data}
+                        renderItem={({ item }) => <Item 
+                        userName={item.userName} 
+                        userRate={item.userRate} 
+                        userColor={item.userColor}
+                        publishedDate={item.publishedDate}
+                        userTitle={item.userTitle}
+                        userContent={item.userContent}
+                        activeSlide={activeSlide}
+                        Slide={item.Slide}
+                         />}
+                        // keyExtractor={item => Object.values(item._id)}
                         />
                     </View>
                 )
@@ -357,11 +443,28 @@ export default class Restaurant extends React.Component{
                 break;
         }
     }
+    
     render(){
         return(
             <SafeAreaView style={rs.container}>
-                <ScrollView>
-                <StatusBar translucent={true} barStyle={"dark-content"} />
+                <StatusBar backgroundColor={"white"} barStyle={"dark-content"}/>
+                <Modal isVisible={this.state.formVisible} animationIn='zoomIn' animationOut="zoomOut">
+                   <AddReviewForm currentResto={ListResto[this.state.activeSlide].title} client={this.state.client} Slide={this.state.activeSlide}/>
+                   
+                   <View style={{flex:1, flexDirection:'row', 
+                   flexWrap:'wrap', width:width, maxHeight:height*0.06, alignSelf:'center',
+                   justifyContent:'center', marginTop:-height*0.07,
+                   }}>
+                        <TouchableOpacity style={rs.submit} activeOpacity={0.7} onPress={this.handleSubmit}>
+                            <Text style={{color:'white', fontFamily:'Montserrat-Bold'}}>Submit</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={rs.closeModal} onPress={this._onPress}>
+                            <Text style={{color:'#DA4167', fontFamily:'Montserrat-Bold'}}>Cancel</Text>
+                        </TouchableOpacity>
+                   </View>
+                </Modal>
+                <ScrollView showsVerticalScrollIndicator={false} style={{marginTop:height*0.04}}>
+                    <Text style={rs.title}>Restaurants</Text>
                     <View style={rs.carouselContainer}>
                         <Carousel
                         style={rs.carousel}
@@ -374,14 +477,9 @@ export default class Restaurant extends React.Component{
                         ref={(c) => {this.numberCarousel = c;}}
                         />
                     </View>
-                    { this.InfoResto }  
-                    {/* <FlatList
-                    data={this.state.entries}
-                    renderItem={({ item }) => <Item title={item.title} info={item.info} address={item.address} />}
-                    keyExtractor={item => item.title}
-                    />  */}
-                    {/* <Text>Hello</Text> */}
-                    {/* <Image style={rs.Image} source={require('./Images/jaromir-kavan-i9eaAR4dWi8-unsplash.jpg')}/> */}
+                    <SafeAreaView>
+                        { this.ListReviews }  
+                    </SafeAreaView>
                     </ScrollView>
             </SafeAreaView>
         )
