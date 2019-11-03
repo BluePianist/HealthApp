@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, ImageBackground, SafeAreaView, Dimensions, ScrollView, Image, StatusBar, FlatList, TouchableOpacity } from 'react-native'
+import { View, Text, ImageBackground, SafeAreaView, Dimensions, ScrollView, Image, StatusBar, FlatList, TouchableOpacity, Animated, Easing } from 'react-native'
 import Carousel, {ParallaxImage, Pagination} from 'react-native-snap-carousel'
 import rs from './Style/Restaurant_style'
 import Icon from './Icon'
@@ -199,11 +199,19 @@ export default class Restaurant extends React.Component{
             currentUserId:undefined,
             data:undefined,
             formVisible: false,
+            modalOut:'',
+            alertColor: '#a9a9a9',
+            emptySubmit: 0,
+            animatedValue: new Animated.Value(0),
+            animatedColor: new Animated.Value(0),
+            fadeOut: new Animated.Value(1),
+            fadeIn: new Animated.Value(0),
         }
         this._onPress = this._onPress.bind(this)
         this._renderItem = this._renderItem.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this._onRefresh = this._onRefresh.bind(this)
+        this._handleAnimation = this._handleAnimation.bind(this)
     }
     static navigationOptions = {
         header: null
@@ -211,7 +219,9 @@ export default class Restaurant extends React.Component{
     componentDidMount(){
         this._loadClient();
         this.setState({
-            formVisible:false
+            formVisible:false,
+            modalOut:'zoomOut',
+            emptySubmit: 0,
         })
     }
     componentWillUnmount(){
@@ -244,10 +254,46 @@ export default class Restaurant extends React.Component{
         } else {
             this.setState({client: Stitch.defaultAppClient})
         }
+
         this._onRefresh();
     }
+    _handleAnimation(){
+        this.setState({ modalOut:'bounceOutDown'});
+        
+        Animated.parallel([
+            Animated.timing(this.state.animatedValue, {
+                toValue: 1,
+                duration: 400,
+                easing: Easing.elastic(1)
+            }),
+            Animated.timing(this.state.fadeOut,{
+                toValue:0,
+                duration:200,
+            }),
+            Animated.timing(this.state.fadeIn,{
+                toValue:1,
+                duration:300,
+            }),
+            Animated.timing(this.state.animatedColor,{
+                toValue:150,
+                duration:400,
+            })
+    
+        ]).start()
+        setTimeout(() => {
+            this.state.animatedValue.setValue(0)
+            this.state.animatedColor.setValue(0)
+            this.state.fadeOut.setValue(1)
+            this.state.fadeIn.setValue(0)
+        }, 3000);
+    }
     _onPress(){
-        this.setState({ formVisible:!this.state.formVisible })
+        this.setState({ 
+            formVisible:!this.state.formVisible,
+            modalOut:'zoomOut',
+            alertColor:'#a9a9a9',
+            emptySubmit: 0,
+         })
     }
     _renderItem ({item, index}, parallaxProps) {
         // How the slide is displayed in the carousel
@@ -261,7 +307,7 @@ export default class Restaurant extends React.Component{
                 parallaxFactor={0.4}
                 {...parallaxProps}
                 />
-                <TouchableOpacity activeOpacity={0.6} style={rs.addReview} onPress={this._onPress}>
+                <TouchableOpacity activeOpacity={0.6} style={rs.addReview} onPress={() => {this.setState({ formVisible:!this.state.formVisible })}}>
                     <Icon name="plus" fill="#ffffff" viewBox="0 0 100 100" height='33' width='33' style={rs.plus}/>
                 </TouchableOpacity>
                 
@@ -287,7 +333,7 @@ export default class Restaurant extends React.Component{
         const db = mongoClient.db("Reviews");
         const reviews = db.collection("Restaurants");
 
-        if(state){
+        if(state.userTitle && state.userContent){
         reviews.insertOne({
                 userName: state.userName,
                 userTitle: state.userTitle,
@@ -299,12 +345,16 @@ export default class Restaurant extends React.Component{
                 fullDate: new Date(),
             
         }).then(() => {
-            this.setState({formVisible: false})
+            this._handleAnimation();
             setTimeout(() => {
+                this.setState({formVisible: false})
                 this._onRefresh();
-            }, 100);
+            }, 400);
         }).catch(e => {console.log('error '+ e);})
-        } else {alert('state undefined !' + state)}
+        } else {
+            this.setState({ alertColor: '#DA4167', emptySubmit: this.state.emptySubmit + 1})
+            // alert('Can\'t be empty !')
+        }
     }
     get pagination () {
         // Display dots according to the current slide
@@ -445,23 +495,75 @@ export default class Restaurant extends React.Component{
     }
     
     render(){
+        const interpolateColor = this.state.animatedColor.interpolate({
+            inputRange:[0, 150],
+            outputRange:['#ffffff', '#DA4167']
+        });
         return(
             <SafeAreaView style={rs.container}>
                 <StatusBar backgroundColor={"white"} barStyle={"dark-content"}/>
-                <Modal isVisible={this.state.formVisible} animationIn='zoomIn' animationOut="zoomOut">
-                   <AddReviewForm currentResto={ListResto[this.state.activeSlide].title} client={this.state.client} Slide={this.state.activeSlide}/>
-                   
-                   <View style={{flex:1, flexDirection:'row', 
-                   flexWrap:'wrap', width:width, maxHeight:height*0.06, alignSelf:'center',
-                   justifyContent:'center', marginTop:-height*0.07,
-                   }}>
-                        <TouchableOpacity style={rs.submit} activeOpacity={0.7} onPress={this.handleSubmit}>
-                            <Text style={{color:'white', fontFamily:'Montserrat-Bold'}}>Submit</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={rs.closeModal} onPress={this._onPress}>
-                            <Text style={{color:'#DA4167', fontFamily:'Montserrat-Bold'}}>Cancel</Text>
-                        </TouchableOpacity>
-                   </View>
+                <Modal isVisible={this.state.formVisible} animationIn='zoomIn' animationOut={this.state.modalOut} animationOutTiming={1000} backdropTransitionOutTiming={1000}>
+                    <Animated.View
+                        style={{
+                        position:'absolute',
+                        flex:1,
+                        flexDirection:'column',
+                        width:0.9*width,
+                        maxHeight:0.51*height,
+                        backgroundColor:interpolateColor,
+                        borderRadius:20,
+                        transform: [
+                            {
+                                translateX: this.state.animatedValue.interpolate({
+                                    inputRange: [0, 1],
+                                    outputRange: [0, 1]
+                                })
+                            },
+                            {
+                                translateY: this.state.animatedValue.interpolate({
+                                    inputRange: [0, 1],
+                                    outputRange: [0, 1]
+                                })
+                            },
+                            {
+                                scaleX: this.state.animatedValue.interpolate({
+                                    inputRange: [0, 1],
+                                    outputRange: [1, 0.65]
+                                })
+                            },
+                            {
+                                scaleY: this.state.animatedValue.interpolate({
+                                    inputRange: [0, 1],
+                                    outputRange: [1, 0.25]
+                                })
+                            }
+                        ]
+                        }}>
+                        <Animated.View style={{flex: 1, flexDirection:'column', opacity: this.state.fadeOut}}>
+                            <AddReviewForm currentResto={ListResto[this.state.activeSlide].title} client={this.state.client} Slide={this.state.activeSlide} color={this.state.alertColor} wiggle={this.state.emptySubmit}/>
+                            <View style={{flex:1, flexDirection:'row', 
+                            flexWrap:'wrap', width:width, height:height*0.06, alignSelf:'center',
+                            justifyContent:'center', marginTop:height*0.43, position:'absolute'
+                            }}>
+                                    <TouchableOpacity style={rs.submit} activeOpacity={0.7} onPress={this.handleSubmit}>
+                                        <Text style={{color:'white', fontFamily:'Montserrat-Bold'}}>Submit</Text>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity style={rs.closeModal} onPress={this._onPress}>
+                                        <Text style={{color:'#DA4167', fontFamily:'Montserrat-Bold'}}>Cancel</Text>
+                                    </TouchableOpacity>
+                            </View>
+                        </Animated.View>
+                    </Animated.View>
+                    <Animated.Text style={{
+                        position:'absolute',
+                        fontSize:23,
+                        fontFamily:'Montserrat-Bold',
+                        color:'white',
+                        textAlign:'center',
+                        alignSelf:'center',
+                        padding:5,
+                        opacity: this.state.fadeIn
+                    }}>Thank you !</Animated.Text>
                 </Modal>
                 <ScrollView showsVerticalScrollIndicator={false} style={{marginTop:height*0.04}}>
                     <Text style={rs.title}>Restaurants</Text>

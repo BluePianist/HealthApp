@@ -99,7 +99,7 @@ export default StyleSheet.create({
         // backgroundColor:'#B0D0D3',
         backgroundColor:'black',
         borderRadius: 40,
-        // marginTop:0,
+        marginTop:hp('5%'),
         // marginRight:'auto',
         // marginLeft:'auto',
         shadowOffset:{width: 0, height: 0},

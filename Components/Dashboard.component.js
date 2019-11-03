@@ -63,8 +63,8 @@ export default class Dashboard extends React.Component{
     }
     scrollToInitialPosition = () => {
         setTimeout(() => {
-            this.scrollViewRef.scrollTo({ y: hp(33), animated:true });
-        }, 2); 
+            this.scrollViewRef.scrollTo({ y: hp(27), animated:true });
+        }, 100); 
       }
   
     render(){
@@ -81,7 +81,7 @@ export default class Dashboard extends React.Component{
                             <View style={ds.panel}>
                                 <Text style={ds.Hello}>Hello {this.state.name}, what are you looking for ?</Text>
                                 <View style={ds.boxContainerHorizontal}>
-                                    <Text style={ds.panelTitle}>Travel tips</Text>
+                                    {/* <Text style={ds.panelTitle}>Travel tips</Text> */}
                                     <TouchableOpacity activeOpacity={0.7} style={ds.box1} onPress={() => this.props.navigation.navigate('Restaurant')}>
                                         <Image source={require('./Images/DRYpypwUQAEfMNX.jpg')} style={ds.boxImage}/>
                                         <Text style={ds.boxText}>Restaurants</Text>

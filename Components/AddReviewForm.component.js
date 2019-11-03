@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, Text, TouchableOpacity, Dimensions, TextInput} from 'react-native'
+import {View, Text, TouchableOpacity, Dimensions, TextInput, Animated, Easing} from 'react-native'
 import Modal from 'react-native-modal'
 import rs from './Style/Restaurant_style'
 import ms from './Style/Modal_style'
@@ -25,11 +25,12 @@ export class AddReviewForm extends React.Component{
             userContent:'',
             publishedDate:'',
             formVisible:false,
+            ifWiggle: 0,
+            animatedValue: new Animated.Value(0),
         }
         this.ratingCompleted = this.ratingCompleted.bind(this);
     }
     componentDidMount(){
-        console.log(this.props.visible);
         const month = new Date().getMonth();
         const monthName = monthNames[month];
         const date = new Date().getDate();
@@ -41,7 +42,9 @@ export class AddReviewForm extends React.Component{
             publishedDate: monthName +" "+ date +", "+ year,
             userColor: colors[Math.floor(Math.random() * colors.length)],
             userName:'User',
+            ifWiggle: this.props.wiggle,
         })
+        this.handleAnimate = this.handleAnimate.bind(this)
         state = this.state
     }
  
@@ -49,26 +52,59 @@ export class AddReviewForm extends React.Component{
         this.setState({userRate: rating})
         console.log("Rating is: " + rating)
     }
-
+    handleAnimate(){
+        // alert('state '+ this.state.ifWiggle + 'props' + this.props.wiggle)
+        Animated.timing(this.state.animatedValue, {
+            toValue: 2,
+            easing: Easing.elastic(5),
+            duration: 1000,
+        }).start();
+        this.setState({ifWiggle: this.props.wiggle})
+        
+        setTimeout(() => { 
+            this.state.animatedValue.setValue(0)
+        }, 1000);
+    }
     
     render(){
         state = this.state
+        if(this.state.ifWiggle !== this.props.wiggle) this.handleAnimate()
+        else console.log('state '+ this.state.ifWiggle + 'props' + this.props.wiggle);
         return(
             <View style={{
                 borderRadius:20,
                 width:0.9*width,
-                backgroundColor:'white',
+                backgroundColor:'transparent',
                 paddingTop:10,
             }}>
                 <Text style={rs.title}>What do you think about {this.props.currentResto} ?</Text>
-                <TextInput style={ms.input} placeholder="Title" multiline={true} onChangeText={userTitle => this.setState({userTitle})}/>
+                <Animated.View style={{
+                    transform:[{
+                        translateX: this.state.animatedValue.interpolate({
+                            inputRange:[0, 1, 2],
+                            outputRange:[1, 10, 1]
+                        })
+                    }]
+                }}>
+                    <TextInput style={[ms.input,{borderColor:this.props.color}]} placeholder="Title" placeholderTextColor={this.props.color} multiline={true} onChangeText={userTitle => {this.setState({ userTitle })}}/>
+                </Animated.View>
                 <AirbnbRating
                 count={5}
                 reviews={["Terrible ", "OK ", "Hmm... ", "Good ", "Amazing "]}
                 defaultRating={5}
-                size={20}
-                onFinishRating={this.ratingCompleted} />
-                <TextInput style={ms.inputContent} placeholder="Your content"  multiline={true} onChangeText={userContent => this.setState({userContent})}/>
+                size={50}
+                onFinishRating={this.ratingCompleted}
+                />
+                <Animated.View style={{
+                    transform:[{
+                        translateX: this.state.animatedValue.interpolate({
+                            inputRange:[0, 1, 2],
+                            outputRange:[1, 10, 1]
+                        })
+                    }]
+                }}>
+                    <TextInput style={[ms.inputContent, {borderColor:this.props.color}]} placeholder="Your content" placeholderTextColor={this.props.color} multiline={true} onChangeText={userContent => {this.setState({ userContent })}}/>
+                </Animated.View>
                 <View style={{height:height*0.20}}/>
             </View>
         )
