@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* TravelAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* TravelAppTests.m */; };
+		0BE98D65B6E80C1BF9224EF8 /* Pods_TravelAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 008FA9BFB273BFB672054B91 /* Pods_TravelAppTests.framework */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -16,6 +17,35 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* TravelAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* TravelAppTests.m */; };
+		44CBC14FC107DB07740A2D12 /* libPods-TravelApp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5774BFF9A602254E1DDA3D3C /* libPods-TravelApp-tvOSTests.a */; };
+		83247510F405D7B3EA7E16C6 /* Pods_TravelApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F91D6623720FCA333CF00930 /* Pods_TravelApp.framework */; };
+		CE63C26D23722EB300AC0956 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = CE63C26C23722EB300AC0956 /* fonts */; };
+		CE63C2912372352500AC0956 /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE63C289237234A100AC0956 /* Montserrat-Black.ttf */; };
+		CE63C2922372352500AC0956 /* Montserrat-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE63C281237234A000AC0956 /* Montserrat-BlackItalic.ttf */; };
+		CE63C2932372352500AC0956 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE63C282237234A000AC0956 /* Montserrat-Bold.ttf */; };
+		CE63C2942372352500AC0956 /* Montserrat-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE63C28E237234A100AC0956 /* Montserrat-BoldItalic.ttf */; };
+		CE63C2952372352500AC0956 /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE63C27F237234A000AC0956 /* Montserrat-ExtraBold.ttf */; };
+		CE63C2962372352500AC0956 /* Montserrat-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE63C288237234A100AC0956 /* Montserrat-ExtraBoldItalic.ttf */; };
+		CE63C2972372352500AC0956 /* Montserrat-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE63C283237234A000AC0956 /* Montserrat-ExtraLight.ttf */; };
+		CE63C2982372352500AC0956 /* Montserrat-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE63C280237234A000AC0956 /* Montserrat-ExtraLightItalic.ttf */; };
+		CE63C2992372352500AC0956 /* Montserrat-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE63C290237234A200AC0956 /* Montserrat-Italic.ttf */; };
+		CE63C29A2372352500AC0956 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE63C28A237234A100AC0956 /* Montserrat-Light.ttf */; };
+		CE63C29B2372352500AC0956 /* Montserrat-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE63C284237234A000AC0956 /* Montserrat-LightItalic.ttf */; };
+		CE63C29C2372352500AC0956 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE63C28F237234A200AC0956 /* Montserrat-Medium.ttf */; };
+		CE63C29D2372352500AC0956 /* Montserrat-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE63C285237234A000AC0956 /* Montserrat-MediumItalic.ttf */; };
+		CE63C29E2372352500AC0956 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE63C28D237234A100AC0956 /* Montserrat-Regular.ttf */; };
+		CE63C29F2372352500AC0956 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE63C28C237234A100AC0956 /* Montserrat-SemiBold.ttf */; };
+		CE63C2A02372352500AC0956 /* Montserrat-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE63C28B237234A100AC0956 /* Montserrat-SemiBoldItalic.ttf */; };
+		CE63C2A12372352500AC0956 /* Montserrat-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE63C286237234A100AC0956 /* Montserrat-Thin.ttf */; };
+		CE63C2A22372352500AC0956 /* Montserrat-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE63C287237234A100AC0956 /* Montserrat-ThinItalic.ttf */; };
+		CE63C2A32372352500AC0956 /* Audrey-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE63C27B2372348F00AC0956 /* Audrey-Bold.otf */; };
+		CE63C2A42372352500AC0956 /* Audrey-BoldOblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE63C27C2372349000AC0956 /* Audrey-BoldOblique.otf */; };
+		CE63C2A52372352500AC0956 /* Audrey-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE63C27D2372349000AC0956 /* Audrey-Medium.otf */; };
+		CE63C2A62372352500AC0956 /* Audrey-MediumOblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE63C2792372348F00AC0956 /* Audrey-MediumOblique.otf */; };
+		CE63C2A72372352500AC0956 /* Audrey-Normal.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE63C27E2372349000AC0956 /* Audrey-Normal.otf */; };
+		CE63C2A82372352500AC0956 /* Audrey-NormalOblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE63C27A2372348F00AC0956 /* Audrey-NormalOblique.otf */; };
+		CE63C2AA2372363F00AC0956 /* Quark-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE63C2A92372361400AC0956 /* Quark-Bold.otf */; };
+		D756E71AD7962F6A2476FA6C /* libPods-TravelApp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 06725062674CD657FEF64851 /* libPods-TravelApp-tvOS.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,20 +67,58 @@
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
+		008FA9BFB273BFB672054B91 /* Pods_TravelAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356EE1AD99517003FC87E /* TravelAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravelAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* TravelAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TravelAppTests.m; sourceTree = "<group>"; };
+		06725062674CD657FEF64851 /* libPods-TravelApp-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TravelApp-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CF1DE3ADD16EB413394AD3E /* Pods-TravelAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelAppTests.release.xcconfig"; path = "Target Support Files/Pods-TravelAppTests/Pods-TravelAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* TravelApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = TravelApp/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = TravelApp/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = TravelApp/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = TravelApp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = TravelApp/main.m; sourceTree = "<group>"; };
+		16FCE023EA1F33503C7BEF0B /* Pods-TravelApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelApp.release.xcconfig"; path = "Target Support Files/Pods-TravelApp/Pods-TravelApp.release.xcconfig"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* TravelApp-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TravelApp-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* TravelApp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TravelApp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		44CA9A21445D02E3C49F4631 /* Pods-TravelApp-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelApp-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-TravelApp-tvOSTests/Pods-TravelApp-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5774BFF9A602254E1DDA3D3C /* libPods-TravelApp-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TravelApp-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		651371505079D678960A9ECA /* Pods-TravelApp-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelApp-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-TravelApp-tvOSTests/Pods-TravelApp-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		6B84858C9B900D6D65A8842A /* Pods-TravelAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelAppTests.debug.xcconfig"; path = "Target Support Files/Pods-TravelAppTests/Pods-TravelAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CE63C26C23722EB300AC0956 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fonts; path = ../android/app/src/main/assets/fonts; sourceTree = "<group>"; };
+		CE63C2742372324A00AC0956 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE63C2792372348F00AC0956 /* Audrey-MediumOblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Audrey-MediumOblique.otf"; sourceTree = "<group>"; };
+		CE63C27A2372348F00AC0956 /* Audrey-NormalOblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Audrey-NormalOblique.otf"; sourceTree = "<group>"; };
+		CE63C27B2372348F00AC0956 /* Audrey-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Audrey-Bold.otf"; sourceTree = "<group>"; };
+		CE63C27C2372349000AC0956 /* Audrey-BoldOblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Audrey-BoldOblique.otf"; sourceTree = "<group>"; };
+		CE63C27D2372349000AC0956 /* Audrey-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Audrey-Medium.otf"; sourceTree = "<group>"; };
+		CE63C27E2372349000AC0956 /* Audrey-Normal.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Audrey-Normal.otf"; sourceTree = "<group>"; };
+		CE63C27F237234A000AC0956 /* Montserrat-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBold.ttf"; sourceTree = "<group>"; };
+		CE63C280237234A000AC0956 /* Montserrat-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		CE63C281237234A000AC0956 /* Montserrat-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BlackItalic.ttf"; sourceTree = "<group>"; };
+		CE63C282237234A000AC0956 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		CE63C283237234A000AC0956 /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; };
+		CE63C284237234A000AC0956 /* Montserrat-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-LightItalic.ttf"; sourceTree = "<group>"; };
+		CE63C285237234A000AC0956 /* Montserrat-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-MediumItalic.ttf"; sourceTree = "<group>"; };
+		CE63C286237234A100AC0956 /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Thin.ttf"; sourceTree = "<group>"; };
+		CE63C287237234A100AC0956 /* Montserrat-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ThinItalic.ttf"; sourceTree = "<group>"; };
+		CE63C288237234A100AC0956 /* Montserrat-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		CE63C289237234A100AC0956 /* Montserrat-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.ttf"; sourceTree = "<group>"; };
+		CE63C28A237234A100AC0956 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
+		CE63C28B237234A100AC0956 /* Montserrat-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		CE63C28C237234A100AC0956 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		CE63C28D237234A100AC0956 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		CE63C28E237234A100AC0956 /* Montserrat-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BoldItalic.ttf"; sourceTree = "<group>"; };
+		CE63C28F237234A200AC0956 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		CE63C290237234A200AC0956 /* Montserrat-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Italic.ttf"; sourceTree = "<group>"; };
+		CE63C2A92372361400AC0956 /* Quark-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quark-Bold.otf"; sourceTree = "<group>"; };
+		E24803D752B91A505E0BD21B /* Pods-TravelApp-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelApp-tvOS.release.xcconfig"; path = "Target Support Files/Pods-TravelApp-tvOS/Pods-TravelApp-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		E37C1A483A8A194838A0DD56 /* Pods-TravelApp-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelApp-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-TravelApp-tvOS/Pods-TravelApp-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		F91D6623720FCA333CF00930 /* Pods_TravelApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFBC86F491C875526694604E /* Pods-TravelApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelApp.debug.xcconfig"; path = "Target Support Files/Pods-TravelApp/Pods-TravelApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BE98D65B6E80C1BF9224EF8 /* Pods_TravelAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83247510F405D7B3EA7E16C6 /* Pods_TravelApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D756E71AD7962F6A2476FA6C /* libPods-TravelApp-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44CBC14FC107DB07740A2D12 /* libPods-TravelApp-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,11 +177,11 @@
 		13B07FAE1A68108700A75B9A /* TravelApp */ = {
 			isa = PBXGroup;
 			children = (
+				CE63C2742372324A00AC0956 /* Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
-				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
@@ -121,8 +193,27 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
+				F91D6623720FCA333CF00930 /* Pods_TravelApp.framework */,
+				06725062674CD657FEF64851 /* libPods-TravelApp-tvOS.a */,
+				5774BFF9A602254E1DDA3D3C /* libPods-TravelApp-tvOSTests.a */,
+				008FA9BFB273BFB672054B91 /* Pods_TravelAppTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		818F0F77E04878F2889E9657 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FFBC86F491C875526694604E /* Pods-TravelApp.debug.xcconfig */,
+				16FCE023EA1F33503C7BEF0B /* Pods-TravelApp.release.xcconfig */,
+				E37C1A483A8A194838A0DD56 /* Pods-TravelApp-tvOS.debug.xcconfig */,
+				E24803D752B91A505E0BD21B /* Pods-TravelApp-tvOS.release.xcconfig */,
+				44CA9A21445D02E3C49F4631 /* Pods-TravelApp-tvOSTests.debug.xcconfig */,
+				651371505079D678960A9ECA /* Pods-TravelApp-tvOSTests.release.xcconfig */,
+				6B84858C9B900D6D65A8842A /* Pods-TravelAppTests.debug.xcconfig */,
+				0CF1DE3ADD16EB413394AD3E /* Pods-TravelAppTests.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -135,11 +226,38 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				CE63C289237234A100AC0956 /* Montserrat-Black.ttf */,
+				CE63C281237234A000AC0956 /* Montserrat-BlackItalic.ttf */,
+				CE63C282237234A000AC0956 /* Montserrat-Bold.ttf */,
+				CE63C28E237234A100AC0956 /* Montserrat-BoldItalic.ttf */,
+				CE63C27F237234A000AC0956 /* Montserrat-ExtraBold.ttf */,
+				CE63C288237234A100AC0956 /* Montserrat-ExtraBoldItalic.ttf */,
+				CE63C283237234A000AC0956 /* Montserrat-ExtraLight.ttf */,
+				CE63C280237234A000AC0956 /* Montserrat-ExtraLightItalic.ttf */,
+				CE63C290237234A200AC0956 /* Montserrat-Italic.ttf */,
+				CE63C28A237234A100AC0956 /* Montserrat-Light.ttf */,
+				CE63C284237234A000AC0956 /* Montserrat-LightItalic.ttf */,
+				CE63C28F237234A200AC0956 /* Montserrat-Medium.ttf */,
+				CE63C285237234A000AC0956 /* Montserrat-MediumItalic.ttf */,
+				CE63C28D237234A100AC0956 /* Montserrat-Regular.ttf */,
+				CE63C28C237234A100AC0956 /* Montserrat-SemiBold.ttf */,
+				CE63C28B237234A100AC0956 /* Montserrat-SemiBoldItalic.ttf */,
+				CE63C286237234A100AC0956 /* Montserrat-Thin.ttf */,
+				CE63C287237234A100AC0956 /* Montserrat-ThinItalic.ttf */,
+				CE63C27B2372348F00AC0956 /* Audrey-Bold.otf */,
+				CE63C27C2372349000AC0956 /* Audrey-BoldOblique.otf */,
+				CE63C27D2372349000AC0956 /* Audrey-Medium.otf */,
+				CE63C2A92372361400AC0956 /* Quark-Bold.otf */,
+				CE63C2792372348F00AC0956 /* Audrey-MediumOblique.otf */,
+				CE63C27E2372349000AC0956 /* Audrey-Normal.otf */,
+				CE63C27A2372348F00AC0956 /* Audrey-NormalOblique.otf */,
+				CE63C26C23722EB300AC0956 /* fonts */,
 				13B07FAE1A68108700A75B9A /* TravelApp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* TravelAppTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				818F0F77E04878F2889E9657 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -164,6 +282,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "TravelAppTests" */;
 			buildPhases = (
+				C7C0243CCA45FC14C16FBAC0 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
@@ -182,18 +301,20 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "TravelApp" */;
 			buildPhases = (
+				DCFC7703621AB55ABE69B9FE /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				1489928B81F2C6253A2D6D8E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = TravelApp;
-			productName = "TravelApp";
+			productName = TravelApp;
 			productReference = 13B07F961A680F5B00A75B9A /* TravelApp.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -201,6 +322,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "TravelApp-tvOS" */;
 			buildPhases = (
+				ED35E2F7FC619FA755266E80 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
@@ -220,6 +342,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "TravelApp-tvOSTests" */;
 			buildPhases = (
+				62A0BA8193B4B2A64EA44000 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -240,7 +363,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 940;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -291,8 +414,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE63C2A52372352500AC0956 /* Audrey-Medium.otf in Resources */,
+				CE63C2A02372352500AC0956 /* Montserrat-SemiBoldItalic.ttf in Resources */,
+				CE63C2962372352500AC0956 /* Montserrat-ExtraBoldItalic.ttf in Resources */,
+				CE63C2A32372352500AC0956 /* Audrey-Bold.otf in Resources */,
+				CE63C29C2372352500AC0956 /* Montserrat-Medium.ttf in Resources */,
+				CE63C2A82372352500AC0956 /* Audrey-NormalOblique.otf in Resources */,
+				CE63C29E2372352500AC0956 /* Montserrat-Regular.ttf in Resources */,
+				CE63C26D23722EB300AC0956 /* fonts in Resources */,
+				CE63C2982372352500AC0956 /* Montserrat-ExtraLightItalic.ttf in Resources */,
+				CE63C2992372352500AC0956 /* Montserrat-Italic.ttf in Resources */,
+				CE63C29F2372352500AC0956 /* Montserrat-SemiBold.ttf in Resources */,
+				CE63C2AA2372363F00AC0956 /* Quark-Bold.otf in Resources */,
+				CE63C2A22372352500AC0956 /* Montserrat-ThinItalic.ttf in Resources */,
+				CE63C2942372352500AC0956 /* Montserrat-BoldItalic.ttf in Resources */,
+				CE63C2912372352500AC0956 /* Montserrat-Black.ttf in Resources */,
+				CE63C2A12372352500AC0956 /* Montserrat-Thin.ttf in Resources */,
+				CE63C2932372352500AC0956 /* Montserrat-Bold.ttf in Resources */,
+				CE63C2A42372352500AC0956 /* Audrey-BoldOblique.otf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				CE63C29B2372352500AC0956 /* Montserrat-LightItalic.ttf in Resources */,
+				CE63C29D2372352500AC0956 /* Montserrat-MediumItalic.ttf in Resources */,
+				CE63C2952372352500AC0956 /* Montserrat-ExtraBold.ttf in Resources */,
+				CE63C2922372352500AC0956 /* Montserrat-BlackItalic.ttf in Resources */,
+				CE63C2A62372352500AC0956 /* Audrey-MediumOblique.otf in Resources */,
+				CE63C2A72372352500AC0956 /* Audrey-Normal.otf in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				CE63C2972372352500AC0956 /* Montserrat-ExtraLight.ttf in Resources */,
+				CE63C29A2372352500AC0956 /* Montserrat-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +477,78 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
+		1489928B81F2C6253A2D6D8E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TravelApp/Pods-TravelApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DoubleConversion/DoubleConversion.framework",
+				"${BUILT_PRODUCTS_DIR}/FBReactNativeSpec/FBReactNativeSpec.framework",
+				"${BUILT_PRODUCTS_DIR}/Folly/folly.framework",
+				"${BUILT_PRODUCTS_DIR}/RCTTypeSafety/RCTTypeSafety.framework",
+				"${BUILT_PRODUCTS_DIR}/RNGestureHandler/RNGestureHandler.framework",
+				"${BUILT_PRODUCTS_DIR}/RNReanimated/RNReanimated.framework",
+				"${BUILT_PRODUCTS_DIR}/RNSVG/RNSVG.framework",
+				"${BUILT_PRODUCTS_DIR}/RNScreens/RNScreens.framework",
+				"${BUILT_PRODUCTS_DIR}/React-Core/React.framework",
+				"${BUILT_PRODUCTS_DIR}/React-CoreModules/CoreModules.framework",
+				"${BUILT_PRODUCTS_DIR}/React-RCTActionSheet/RCTActionSheet.framework",
+				"${BUILT_PRODUCTS_DIR}/React-RCTAnimation/RCTAnimation.framework",
+				"${BUILT_PRODUCTS_DIR}/React-RCTBlob/RCTBlob.framework",
+				"${BUILT_PRODUCTS_DIR}/React-RCTImage/RCTImage.framework",
+				"${BUILT_PRODUCTS_DIR}/React-RCTLinking/RCTLinking.framework",
+				"${BUILT_PRODUCTS_DIR}/React-RCTNetwork/RCTNetwork.framework",
+				"${BUILT_PRODUCTS_DIR}/React-RCTSettings/RCTSettings.framework",
+				"${BUILT_PRODUCTS_DIR}/React-RCTText/RCTText.framework",
+				"${BUILT_PRODUCTS_DIR}/React-RCTVibration/RCTVibration.framework",
+				"${BUILT_PRODUCTS_DIR}/React-cxxreact/cxxreact.framework",
+				"${BUILT_PRODUCTS_DIR}/React-jsi/jsi.framework",
+				"${BUILT_PRODUCTS_DIR}/React-jsiexecutor/jsireact.framework",
+				"${BUILT_PRODUCTS_DIR}/React-jsinspector/jsinspector.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactCommon/ReactCommon.framework",
+				"${BUILT_PRODUCTS_DIR}/Sentry/Sentry.framework",
+				"${BUILT_PRODUCTS_DIR}/SentryReactNative/SentryReactNative.framework",
+				"${BUILT_PRODUCTS_DIR}/Yoga/yoga.framework",
+				"${BUILT_PRODUCTS_DIR}/glog/glog.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DoubleConversion.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBReactNativeSpec.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/folly.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RCTTypeSafety.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNGestureHandler.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNReanimated.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNSVG.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNScreens.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/React.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CoreModules.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RCTActionSheet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RCTAnimation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RCTBlob.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RCTImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RCTLinking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RCTNetwork.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RCTSettings.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RCTText.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RCTVibration.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/cxxreact.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/jsi.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/jsireact.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/jsinspector.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactCommon.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sentry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SentryReactNative.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/yoga.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/glog.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TravelApp/Pods-TravelApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -341,6 +562,94 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		62A0BA8193B4B2A64EA44000 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TravelApp-tvOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7C0243CCA45FC14C16FBAC0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TravelAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DCFC7703621AB55ABE69B9FE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TravelApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED35E2F7FC619FA755266E80 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TravelApp-tvOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -447,12 +756,14 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B84858C9B900D6D65A8842A /* Pods-TravelAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = TravelAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -469,9 +780,11 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CF1DE3ADD16EB413394AD3E /* Pods-TravelAppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = TravelAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -488,11 +801,13 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FFBC86F491C875526694604E /* Pods-TravelApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				INFOPLIST_FILE = TravelApp/Info.plist;
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -507,10 +822,12 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16FCE023EA1F33503C7BEF0B /* Pods-TravelApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = TravelApp/Info.plist;
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -525,6 +842,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E37C1A483A8A194838A0DD56 /* Pods-TravelApp-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -535,6 +853,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "TravelApp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -552,6 +871,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E24803D752B91A505E0BD21B /* Pods-TravelApp-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -562,6 +882,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "TravelApp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -579,6 +900,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44CA9A21445D02E3C49F4631 /* Pods-TravelApp-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -588,6 +910,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "TravelApp-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -605,6 +928,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 651371505079D678960A9ECA /* Pods-TravelApp-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -614,6 +938,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "TravelApp-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (

@@ -12,7 +12,7 @@ const monthNames = ["January", "February", "March", "April", "May", "June", "Jul
 ];
 const colors = ["#DA4167","#832161","#EBB3A9","#A37871","#BF9ACA","#087E8B","#DBC2CF","#DB162F","#043565","#DBEBC0","#6BA292"]
 
-export var state = '';
+export var state = ''; // we export the state with all the value completed by the user and the value given by the props
 
 export class AddReviewForm extends React.Component{
     constructor(props){
@@ -37,38 +37,38 @@ export class AddReviewForm extends React.Component{
         const year = new Date().getFullYear();
 
         this.setState({
-            formVisible: this.props.visible,
-            userName: this.props.userName,
+            formVisible: this.props.visible, // is the modal visible of not
+            userName: this.props.userName, // the name of the user who're currently writing the review
             publishedDate: monthName +" "+ date +", "+ year,
-            userColor: colors[Math.floor(Math.random() * colors.length)],
-            userName:'User',
-            ifWiggle: this.props.wiggle,
+            userColor: colors[Math.floor(Math.random() * colors.length)], // a random color 
+            ifWiggle: this.props.wiggle, // if the user press submit when the fileds are empty the fileds wiggle to alert the user
         })
         this.handleAnimate = this.handleAnimate.bind(this)
         state = this.state
     }
- 
+    // handle the rating component 
     ratingCompleted(rating) {
-        this.setState({userRate: rating})
+        this.setState({userRate: rating}) // set the rate
         console.log("Rating is: " + rating)
     }
+    // animate the input fields when the submit button is pressed while the input fileds are empty
     handleAnimate(){
-        // alert('state '+ this.state.ifWiggle + 'props' + this.props.wiggle)
-        Animated.timing(this.state.animatedValue, {
+        Animated.timing(this.state.animatedValue, { // Make the input wiggle
             toValue: 2,
             easing: Easing.elastic(5),
             duration: 1000,
         }).start();
-        this.setState({ifWiggle: this.props.wiggle})
+        this.setState({ifWiggle: this.props.wiggle}) // refresh the value by querying props
         
+        //after the animation, re-initilize the default value
         setTimeout(() => { 
             this.state.animatedValue.setValue(0)
         }, 1000);
     }
     
     render(){
-        state = this.state
-        if(this.state.ifWiggle !== this.props.wiggle) this.handleAnimate()
+        state = this.state // each render frame, refresh the state we are exporting
+        if(this.state.ifWiggle !== this.props.wiggle) this.handleAnimate() // compare the old value (local) to the new one (props) to know if we need to wiggle or not. 
         else console.log('state '+ this.state.ifWiggle + 'props' + this.props.wiggle);
         return(
             <View style={{
@@ -78,6 +78,7 @@ export class AddReviewForm extends React.Component{
                 paddingTop:10,
             }}>
                 <Text style={rs.title}>What do you think about {this.props.currentResto} ?</Text>
+                {/** The input fields are placed inside a Animated.View in order to make them wiggle if needed */}
                 <Animated.View style={{
                     transform:[{
                         translateX: this.state.animatedValue.interpolate({
@@ -88,12 +89,13 @@ export class AddReviewForm extends React.Component{
                 }}>
                     <TextInput style={[ms.input,{borderColor:this.props.color}]} placeholder="Title" placeholderTextColor={this.props.color} multiline={true} onChangeText={userTitle => {this.setState({ userTitle })}}/>
                 </Animated.View>
+                {/** This component is used to query the rate of the restaurant */}
                 <AirbnbRating
                 count={5}
                 reviews={["Terrible ", "OK ", "Hmm... ", "Good ", "Amazing "]}
                 defaultRating={5}
                 size={50}
-                onFinishRating={this.ratingCompleted}
+                onFinishRating={this.ratingCompleted} 
                 />
                 <Animated.View style={{
                     transform:[{

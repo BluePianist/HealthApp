@@ -8,9 +8,11 @@ import Activities from './Components/Activities.component';
 import HotSpots from './Components/HotSpots.component';
 import GetUserList from './Components/GetUserList.component';
 import { createAppContainer } from 'react-navigation';
+import { fromLeft, fromRight } from 'react-navigation-transitions';
 import { createStackNavigator } from 'react-navigation-stack';
 import { Stitch, AnonymousCredential } from 'mongodb-stitch-react-native-sdk'
-// second commit
+
+// Create the routes for all the screens
 const RootStack = createStackNavigator(
   {
     Dashboard: Dashboard,
@@ -21,7 +23,8 @@ const RootStack = createStackNavigator(
     GetUserList: GetUserList,
 },
 {
-  initialRouteName:'Dashboard'
+  initialRouteName:'Dashboard',
+  transitionConfig: () => fromRight(),
 }
 );
 
@@ -37,6 +40,8 @@ export default class App extends React.Component {
   componentDidMount(){
     this._loadClient();
   }
+
+  // this function authenticate the user by initialize the default client of Mongodb Stitch
   _loadClient(){
     if(!Stitch.hasAppClient('sri-lankapp-wyakx')){
       Stitch.initializeDefaultAppClient('sri-lankapp-wyakx').then(client => {

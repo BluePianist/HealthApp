@@ -33,6 +33,8 @@ target 'TravelApp' do
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
+  pod 'boost-for-react-native', :podspec => 'https://raw.githubusercontent.com/react-native-community/boost-for-react-native/master/boost-for-react-native.podspec'
+
 
 
   target 'TravelAppTests' do
@@ -41,6 +43,7 @@ target 'TravelApp' do
   end
 
   use_native_modules!
+  use_frameworks!
 end
 
 target 'TravelApp-tvOS' do
