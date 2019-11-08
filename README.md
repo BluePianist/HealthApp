@@ -1,3 +1,9 @@
-# Sri-LankApp
-My first React Native application
-### Readme coming soon
+# Sri LankApp
+> My first React Native application.
+> <br> React Native application about Sri Lanka. Help travelers in the country finding restaurants, hotels, activities and hot spots.
+
+## Table of Contents
+
+1. [Installation](#installation)
+
+## Installation
