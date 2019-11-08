@@ -18,7 +18,7 @@ export class AddReviewForm extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            userName:'',
+            userName:'', //The name of the user given by props
             userRate: 5,
             userTitle:'',
             userColor:'',

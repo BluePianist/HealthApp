@@ -11,36 +11,6 @@ const arrayToString = require('arraybuffer-to-string')
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 // the list of the restaurants of the app
-const ListResto = [
-    {
-        title: 'Nuga Gama',
-        image:require('./Images/043_nugaGamaNight-JPG.jpg'),
-        address: '77, Galle Road, Colombo 3, Colombo',
-        info: 'Traditional',
-        rate: 4.5,
-    },
-    {
-        title: 'Kaema Sutra',
-        image:require('./Images/DRYpypwUQAEfMNX.jpg'),
-        address: '1, Galle Face, Colombo 00200 ',
-        info: 'Traditional',
-        rate: 4.9,
-    },
-    {
-        title: 'Ministry of Crab',
-        image:require('./Images/Ministry-of-Crab.jpg'),
-        address: '04 Hospital St, Colombo 00100',
-        info: 'Fish & See Food',
-        rate: 4.7,
-    },
-    {
-        title: 'Upali\'s',
-        image:require('./Images/Upalis.jpg'),
-        address: '765 Dr C.W.W Kannangara, Colombo',
-        info: 'Traditional',
-        rate: 4.9,
-    },
-];
 
 // returns the number of stars according to the rate given. It is displayed within the ListView
 function getStars(rate){
@@ -236,7 +206,8 @@ export default class Restaurant extends React.Component{
     constructor(props){
         super(props)
         this.state={
-            entries: ListResto, 
+            entries: this.props.navigation.getParam('list'),
+            page: this.props.navigation.getParam('page'),
             activeSlide: 0, // the current slide of the carousel
             client:undefined, // the responsed after login to Stitch
             currentUserId:undefined, //the id given after login
@@ -266,6 +237,7 @@ export default class Restaurant extends React.Component{
     componentDidMount(){
         this._loadClient();
         this.setState({
+            page: this.props.navigation.getParam('page'),
             formVisible:false, // the modal is closed by default
             modalOut:'zoomOut', // the closing animation by default is zoomOut for the Modal
             emptySubmit: 0, //by default there is no submit yet
@@ -280,7 +252,7 @@ export default class Restaurant extends React.Component{
         const stitchAppClient = Stitch.defaultAppClient; //set the appclient
         const mongoClient = stitchAppClient.getServiceClient(RemoteMongoClient.factory, "mongodb-atlas"); //get the client from the factory
         const db = mongoClient.db("Reviews"); // set the database we will use
-        const reviews = db.collection("Restaurants"); // set the collection we will use
+        const reviews = db.collection(this.state.page); // set the collection we will use
 
         reviews.find({},{sort: {fullDate: -1}}) //we use find with no parameters to get all the reviews sorted by date
         .asArray() // we want an array
@@ -296,7 +268,7 @@ export default class Restaurant extends React.Component{
         const stitchAppClient = Stitch.defaultAppClient;
         const mongoClient = stitchAppClient.getServiceClient(RemoteMongoClient.factory, "mongodb-atlas");
         const db = mongoClient.db("Reviews");
-        const reviews = db.collection("Restaurants");
+        const reviews = db.collection(this.state.page);
         //same as _onRefresh so far
         
         reviews.deleteOne({_id: reviewId}) //we delete the review that corresponds to the id given
@@ -401,7 +373,7 @@ export default class Restaurant extends React.Component{
     handleSubmit(){
         const mongoClient = this.state.client.getServiceClient(RemoteMongoClient.factory, "mongodb-atlas");
         const db = mongoClient.db("Reviews");
-        const reviews = db.collection("Restaurants");
+        const reviews = db.collection(this.state.page);
         // initialize all the const for fetching the data
 
         if(state.userTitle && state.userContent){ //if the form isn't empty
@@ -625,7 +597,7 @@ export default class Restaurant extends React.Component{
                             {/**This second animated view is for changing the opacity of the texte within the Modal */}
                         <Animated.View style={{flex: 1, flexDirection:'column', opacity: this.state.fadeOut}}>
                             {/** the content of the modal is defined in the AddReviewVorm component */}
-                            <AddReviewForm currentResto={ListResto[this.state.activeSlide].title} client={this.state.client} Slide={this.state.activeSlide} color={this.state.alertColor} wiggle={this.state.emptySubmit} userName={this.state.currentUserName}/>
+                            <AddReviewForm currentResto={this.state.entries[this.state.activeSlide].title} client={this.state.client} Slide={this.state.activeSlide} color={this.state.alertColor} wiggle={this.state.emptySubmit} userName={this.state.currentUserName}/>
                             <View style={{flex:1, flexDirection:'row', 
                             flexWrap:'wrap', width:width, height:height*0.06, alignSelf:'center',
                             justifyContent:'center', marginTop:height*0.43, position:'absolute'
@@ -652,12 +624,12 @@ export default class Restaurant extends React.Component{
                 </Modal>
                 {/** This scroll view contains the carousel and the List View with all the reviews  */}
                 <ScrollView showsVerticalScrollIndicator={false} style={{marginTop:height*0.04}}>
-                    <Text style={rs.title}>Restaurants</Text>
+                    <Text style={rs.title}>{this.state.page}</Text>
                     <View style={rs.carouselContainer}>
                         <Carousel
                         style={rs.carousel}
                         hasParallaxImages={true}
-                        data={ListResto}
+                        data={this.state.entries}
                         renderItem={this._renderItem}
                         itemWidth={0.9*width}
                         sliderWidth={width}
