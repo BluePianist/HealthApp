@@ -2,7 +2,7 @@
 > My first React Native application.
 > <br> React Native application about Sri Lanka. Help travelers in the country finding restaurants, hotels, activities and hot spots.
 
-<img id="screenshot" src="/src/Components/Images/Screenshot1.png">
+<img id="screenshot" src="/Components/Images/Screenshot1.png">
 
 ## Table of Contents
 
