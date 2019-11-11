@@ -21,4 +21,15 @@ pod install
 ```
 ## Demo
 ### Dashboard screen
-<br> This is the main screen of the app. You can find all the `Views` redirecting to the other components
+<br> This is the main screen of the app. You can find all the `Views` redirecting to the other components.
+<br> For a better render onPress I used `TouchableOpacity` instead of a simple `View`.
+<br><br> GIF
+
+## Restaurant component
+<br> When the Restaurant View is pressed you are redirected to the Restaurant component. This screen contains a list of restaurants displayed in a `Carousel`. This is the same for the Hotels, Activities and Hot Spots scree.
+<br> Below, you can find a list of reviews written by previous users.
+<br><br> GIF
+
+## Add a review
+<br> You can add a review by touching the + button in the `Carousel`. A `Modal` will appear and you are able to fill the filed and press the Submit button. The `Modal` disappears with a nice animation and your new review is added to the list.
+<br><br> GIF
