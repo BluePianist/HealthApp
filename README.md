@@ -9,6 +9,7 @@
 1. [Installation](#installation)
 2. [Demo](#demo)
 3. [How it works](#how-it-works)
+4. [Known issues and improvements ](#known-issues-and-improvements)
 
 ## Installation
 
@@ -27,7 +28,7 @@ This is the main screen of the app. You can find all the `Views` redirecting to 
 <br><br> GIF
 
 ### Restaurant component
-When the Restaurant View is pressed you are redirected to the Restaurant component. This screen contains a list of restaurants displayed in a `Carousel`. This is the same for the Hotels, Activities and Hot Spots scree.
+When the Restaurant View is pressed you are redirected to the Restaurant component. This screen contains a list of restaurants displayed in a `Carousel`. This is the same for the Hotels, Activities and Hot Spots screens.
 <br> Below, you can find a list of reviews written by previous users.
 <br><br> GIF
 
@@ -52,6 +53,7 @@ render(){
  ```
  ### react-native-snap-carousel
  For a nice render I opted for [`react-native-snap-carousel`](https://github.com/archriss/react-native-snap-carousel) and its `ParallaxImage`component.
+ <br><br> GIF
  ```javascript
  import Carousel, {ParallaxImage, Pagination} from 'react-native-snap-carousel'
  
@@ -91,7 +93,8 @@ render(){
 }
  ```
 ### mongodb-stitch-react-native-sdk
-The backend is managed using [`mongodb-stitch-react-native-sdk`](https://docs.mongodb.com/stitch-sdks/js-react-native/4/modules/remotemongoclient.html). This allows the user to add and delete reviews by querying the database.
+The backend is managed using [`mongodb-stitch-react-native-sdk`](https://www.npmjs.com/package/mongodb-stitch-react-native-sdk). This allows the user to add and delete reviews by querying the database.
+ <br><br> GIF
 ```javascript
  import {Stitch, RemoteMongoClient} from 'mongodb-stitch-react-native-sdk'
  
@@ -129,3 +132,8 @@ _loadClient(){
         this._onRefresh(); // and we refresh the list to display it the first time
 }
  ```
+## Known issues and improvements 
+### Sign in / sign up screen
+There is no sign in/up screen so far. The user is logged as 'User' and he is not able to change account.
+### Temples/Forest/Beaches/Rivers
+I didn't use all the View I setted. In the Dashboard component there is some empty views, redirecting to any screen.
