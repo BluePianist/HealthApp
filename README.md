@@ -53,6 +53,8 @@ render(){
  ### react-native-snap-carousel
  For a nice render I opted for [`react-native-snap-carousel`](https://github.com/archriss/react-native-snap-carousel) and its `ParallaxImage`component.
  ```javascript
+ import Carousel, {ParallaxImage, Pagination} from 'react-native-snap-carousel'
+ 
  _renderItem ({item, index}, parallaxProps) {
         // How the slide is displayed within the carousel
         const {title, image, address, info, rate} = item;
@@ -85,5 +87,45 @@ render(){
                 onSnapToItem={(index) => this.setState({ activeSlide: index }) }
                 ref={(c) => {this.numberCarousel = c;}}
                 />
+       )
+}
+ ```
+### mongodb-stitch-react-native-sdk
+The backend is managed using [`mongodb-stitch-react-native-sdk`](https://docs.mongodb.com/stitch-sdks/js-react-native/4/modules/remotemongoclient.html). This allows the user to add and delete reviews by querying the database.
+```javascript
+ import {Stitch, RemoteMongoClient} from 'mongodb-stitch-react-native-sdk'
+ 
+//this function is used when we want to refresh the listView when a review were added or deleted
+ _onRefresh(){
+        const stitchAppClient = Stitch.defaultAppClient; //set the appclient
+        const mongoClient = stitchAppClient.getServiceClient(RemoteMongoClient.factory, "mongodb-atlas"); //get the client from the factory
+        const db = mongoClient.db("Reviews"); // set the database we will use
+        const reviews = db.collection(this.state.page); // set the collection we will use
+
+        reviews.find({},{sort: {fullDate: -1}}) //we use find with no parameters to get all the reviews sorted by date
+        .asArray() // we want an array
+        .then(reviews => {
+            this.setState({
+                data: reviews //then we set the state 
+            })
+        })
+        .catch(e => console.log(e))
+}
+    
+// this function is used to initialize the client 
+_loadClient(){
+        if(!Stitch.hasAppClient('sri-lankapp-myid')){ //if the client is not set yet, we do it
+            Stitch.initializeDefaultAppClient('sri-lankapp-myid').then(client => {
+                //we initialize the client with the id given by Mongodb Stitch
+                this.setState({ client }); //we set the state 
+
+                if(client.auth.isLoggedIn) {
+                  this.setState({ currentUserId: client.auth.user.id }) // and the id
+                }
+            });
+        } else {
+            this.setState({client: Stitch.defaultAppClient})
+        }
+        this._onRefresh(); // and we refresh the list to display it the first time
 }
  ```
