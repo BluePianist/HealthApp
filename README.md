@@ -57,7 +57,7 @@ render(){
  ```
  ### react-native-snap-carousel
  For a nice render I opted for [`react-native-snap-carousel`](https://github.com/archriss/react-native-snap-carousel) and its `ParallaxImage`component.
- <br><br> GIF
+
  ```javascript
  import Carousel, {ParallaxImage, Pagination} from 'react-native-snap-carousel'
  
@@ -98,7 +98,7 @@ render(){
  ```
 ### mongodb-stitch-react-native-sdk
 The backend is managed using [`mongodb-stitch-react-native-sdk`](https://www.npmjs.com/package/mongodb-stitch-react-native-sdk). This allows the user to add and delete reviews by querying the database.
- <br><br> GIF
+
 ```javascript
  import {Stitch, RemoteMongoClient} from 'mongodb-stitch-react-native-sdk'
  
