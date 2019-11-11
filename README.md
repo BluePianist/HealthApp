@@ -36,5 +36,54 @@ You can add a review by touching the + button in the `Carousel`. A `Modal` will 
 <br><br> GIF
 
 ## How it works
-### React Navigation
-<br> I'm using `react-navigation` to navigate between screens and pass some state in props
+### react-navigation
+I'm using `react-navigation` to navigate between screens and pass some state in props.
+```javascript
+render(){
+        const { navigate } = this.props.navigation; // set the navigate prop
+        return (
+        // [...]
+        <TouchableOpacity 
+        activeOpacity={0.7} 
+        style={ds.box1} 
+        onPress={() => navigate('Restaurant', {name:this.state.name, list:ListResto, page:"Restaurants"})}>
+        )
+}
+ ```
+ ### react-native-snap-carousel
+ For a nice render I opted for [`react-native-snap-carousel`](https://github.com/archriss/react-native-snap-carousel) and its `ParallaxImage`component.
+ ```javascript
+ _renderItem ({item, index}, parallaxProps) {
+        // How the slide is displayed within the carousel
+        const {title, image, address, info, rate} = item;
+        return (
+            <View style={rs.item}>
+                {/**An image with parralax effect */}
+                <ParallaxImage 
+                  containerStyle={rs.containerImage}
+                  style={rs.Image}
+                  source={item.image}
+                  parallaxFactor={0.4}
+                  {...parallaxProps}
+                  />
+                <View>
+                    {/* display the restaurant information within the carousel */}
+                </View>
+            </View>
+       )
+}
+render(){
+        return (
+        // [...]
+              <Carousel
+                style={rs.carousel}
+                hasParallaxImages={true}
+                data={this.state.entries}
+                renderItem={this._renderItem}
+                itemWidth={0.9*width}
+                sliderWidth={width}
+                onSnapToItem={(index) => this.setState({ activeSlide: index }) }
+                ref={(c) => {this.numberCarousel = c;}}
+                />
+}
+ ```
