@@ -8,7 +8,7 @@
 
 1. [Installation](#installation)
 2. [Demo](#demo)
-3. [How it works](#how it works)
+3. [How it works](#how-it-works)
 
 ## Installation
 
