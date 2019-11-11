@@ -179,9 +179,9 @@ export default class Dashboard extends React.Component{
         const { navigate } = this.props.navigation; // set the navigate prop
         return (
             <SafeAreaView style={ds.container}>
+                <StatusBar translucent={true} backgroundColor={'transparent'} barStyle={"light-content"} />
                 <Image source={require('./Images/road-trip-with-raj-0uI8LANIe0A-unsplash.jpg')} style={ds.backgroundImage}/>
                 {/* set the transparency of the status bar for a better render */}
-                <StatusBar backgroundColor="transparent" translucent={true} barStyle={"light-content"} />
 
                 <Text style={ds.Title}>Sri-Lanka</Text>
                 <Text style={ds.Subtitle}>Start your journey with us</Text>
