@@ -10,6 +10,7 @@
 2. [Demo](#demo)
 3. [How it works](#how-it-works)
 4. [Known issues and improvements ](#known-issues-and-improvements)
+5. [Credits](#credits)
 
 ## Installation
 
@@ -25,18 +26,18 @@ pod install
 ### Dashboard screen
 This is the main screen of the app. You can find all the `Views` redirecting to the other components.
 <br> For a better render onPress I used `TouchableOpacity` instead of a simple `View`.
-<br>
+<br><br>
 <img src="/Components/Images/dashboard_demo.gif" height="30%" width="30%">
 
 ### Restaurant component
 When the Restaurant View is pressed you are redirected to the Restaurant component. This screen contains a list of restaurants displayed in a `Carousel`. This is the same for the Hotels, Activities and Hot Spots screens.
 <br> Below, you can find a list of reviews written by previous users.
-<br>
+<br><br>
 <img src="/Components/Images/carousel_demo.gif" height="30%" width="30%">
 
 ### Add a review
 You can add a review by touching the + button in the `Carousel`. A `Modal` will appear and you are able to fill the filed and press the Submit button. The `Modal` disappears with a nice animation and your new review is added to the list.
-<br>
+<br><br>
 <img src="/Components/Images/empty_submit_demo.gif" height="30%" width="30%">  <img src="/Components/Images/add_review_demo.gif" height="30%" width="30%">
 
 ## How it works
@@ -140,3 +141,6 @@ _loadClient(){
 There is no sign in/up screen so far. The user is logged as 'User' and he is not able to change account.
 ### Temples/Forest/Beaches/Rivers
 I didn't use all the View I setted. In the Dashboard component there is some empty views, redirecting to any screen.
+
+## Credits
+Written by [LOPEZE Douglas](https://github.com/BluePianist) and [APPUDURAI Thivya](https://github.com/ThivyaApp) 
