@@ -8,6 +8,7 @@
 
 1. [Installation](#installation)
 2. [Demo](#demo)
+3. [How it works](#how it works)
 
 ## Installation
 
@@ -33,3 +34,7 @@ pod install
 ## Add a review
 <br> You can add a review by touching the + button in the `Carousel`. A `Modal` will appear and you are able to fill the filed and press the Submit button. The `Modal` disappears with a nice animation and your new review is added to the list.
 <br><br> GIF
+
+## How it works
+### React Navigation
+<br> I'm using `react-navigation` to navigate between screens and pass some state in props
